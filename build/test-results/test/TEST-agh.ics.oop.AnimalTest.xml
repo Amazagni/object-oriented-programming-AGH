@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="agh.ics.oop.AnimalTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-10-19T12:52:20" hostname="LAPTOP-9RBQE56N" time="0.056">
+<testsuite name="agh.ics.oop.AnimalTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-10-23T09:00:25" hostname="LAPTOP-9RBQE56N" time="0.029">
   <properties/>
-  <testcase name="parserTest()" classname="agh.ics.oop.AnimalTest" time="0.034"/>
-  <testcase name="directionTest()" classname="agh.ics.oop.AnimalTest" time="0.016"/>
+  <testcase name="parserTest()" classname="agh.ics.oop.AnimalTest" time="0.021"/>
+  <testcase name="orientationTest()" classname="agh.ics.oop.AnimalTest" time="0.005"/>
   <testcase name="moveTest()" classname="agh.ics.oop.AnimalTest" time="0.001"/>
   <testcase name="borderTest()" classname="agh.ics.oop.AnimalTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>

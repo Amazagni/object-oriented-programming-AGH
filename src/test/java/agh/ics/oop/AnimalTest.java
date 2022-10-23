@@ -5,63 +5,72 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AnimalTest {
     @Test
-    public void directionTest(){
+    public void orientationTest(){
         Animal zebra = new Animal();
         zebra.move(MoveDirection.LEFT);
-        assertEquals(zebra.toString(),"position: (2,2) orientation: Zachód");
+        assertEquals(zebra.getAnimalOrientation(),MapDirection.WEST);
         zebra.move(MoveDirection.LEFT);
-        assertEquals(zebra.toString(),"position: (2,2) orientation: Południe");
+        assertEquals(zebra.getAnimalOrientation(),MapDirection.SOUTH);
         zebra.move(MoveDirection.LEFT);
-        assertEquals(zebra.toString(),"position: (2,2) orientation: Wschód");
+        assertEquals(zebra.getAnimalOrientation(),MapDirection.EAST);
         zebra.move(MoveDirection.LEFT);
-        assertEquals(zebra.toString(),"position: (2,2) orientation: Północ");
+        assertEquals(zebra.getAnimalOrientation(),MapDirection.NORTH);
         zebra.move(MoveDirection.RIGHT);
-        assertEquals(zebra.toString(),"position: (2,2) orientation: Wschód");
+        assertEquals(zebra.getAnimalOrientation(),MapDirection.EAST);
         zebra.move(MoveDirection.RIGHT);
-        assertEquals(zebra.toString(),"position: (2,2) orientation: Południe");
+        assertEquals(zebra.getAnimalOrientation(),MapDirection.SOUTH);
         zebra.move(MoveDirection.RIGHT);
-        assertEquals(zebra.toString(),"position: (2,2) orientation: Zachód");
+        assertEquals(zebra.getAnimalOrientation(),MapDirection.WEST);
         zebra.move(MoveDirection.RIGHT);
-        assertEquals(zebra.toString(),"position: (2,2) orientation: Północ");
+        assertEquals(zebra.getAnimalOrientation(),MapDirection.NORTH);
     }
 
     @Test
     public void moveTest(){
         Animal zebra = new Animal();
+        Vector2d tmp = new Vector2d(2,3);
         zebra.move(MoveDirection.FORWARD);
-        assertEquals(zebra.toString(),"position: (2,3) orientation: Północ");
+        assertEquals(zebra.getAnimalPosition(),tmp);
         zebra.move(MoveDirection.BACKWARD);
-        assertEquals(zebra.toString(),"position: (2,2) orientation: Północ");
+        tmp = new Vector2d(2,2);
+        assertEquals(zebra.getAnimalPosition(),tmp);
         zebra.move(MoveDirection.RIGHT);
         zebra.move(MoveDirection.FORWARD);
-        assertEquals(zebra.toString(),"position: (3,2) orientation: Wschód");
+        tmp = new Vector2d(3,2);
+        assertEquals(zebra.getAnimalPosition(),tmp);
         zebra.move(MoveDirection.BACKWARD);
-        assertEquals(zebra.toString(),"position: (2,2) orientation: Wschód");
+        tmp = new Vector2d(2,2);
+        assertEquals(zebra.getAnimalPosition(),tmp);
+
     }
     @Test
     public void borderTest(){
         Animal zebra = new Animal();
+        Vector2d tmp = new Vector2d(2,4);
         zebra.move(MoveDirection.FORWARD);
         zebra.move(MoveDirection.FORWARD);
         zebra.move(MoveDirection.FORWARD);
-        assertEquals(zebra.toString(),"position: (2,4) orientation: Północ");
+        assertEquals(zebra.getAnimalPosition(),tmp);
         zebra.move(MoveDirection.BACKWARD);
         zebra.move(MoveDirection.BACKWARD);
         zebra.move(MoveDirection.BACKWARD);
         zebra.move(MoveDirection.BACKWARD);
         zebra.move(MoveDirection.BACKWARD);
-        assertEquals(zebra.toString(),"position: (2,0) orientation: Północ");
+        tmp = new Vector2d(2,0);
+        assertEquals(zebra.getAnimalPosition(),tmp);
         zebra.move(MoveDirection.RIGHT);
         zebra.move(MoveDirection.BACKWARD);
         zebra.move(MoveDirection.BACKWARD);
         zebra.move(MoveDirection.BACKWARD);
-        assertEquals(zebra.toString(),"position: (0,0) orientation: Wschód");
+        tmp = new Vector2d(0,0);
+        assertEquals(zebra.getAnimalPosition(),tmp);
         zebra.move(MoveDirection.FORWARD);
         zebra.move(MoveDirection.FORWARD);
         zebra.move(MoveDirection.FORWARD);
         zebra.move(MoveDirection.FORWARD);
         zebra.move(MoveDirection.FORWARD);
-        assertEquals(zebra.toString(),"position: (4,0) orientation: Wschód");
+        tmp = new Vector2d(4,0);
+        assertEquals(zebra.getAnimalPosition(),tmp);
     }
     @Test
     public void parserTest(){
