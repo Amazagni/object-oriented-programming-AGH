@@ -37,17 +37,17 @@ class AnimalUpdatedTest {
     Animal zebra = new Animal(map, startingPosition);
     Vector2d tmp = new Vector2d(2,3);
     zebra.move(MoveDirection.FORWARD);
-    assertEquals(zebra.getAnimalPosition(),tmp);
+    assertEquals(zebra.getPosition(),tmp);
     zebra.move(MoveDirection.BACKWARD);
     tmp = new Vector2d(2,2);
-    assertEquals(zebra.getAnimalPosition(),tmp);
+    assertEquals(zebra.getPosition(),tmp);
     zebra.move(MoveDirection.RIGHT);
     zebra.move(MoveDirection.FORWARD);
     tmp = new Vector2d(3,2);
-    assertEquals(zebra.getAnimalPosition(),tmp);
+    assertEquals(zebra.getPosition(),tmp);
     zebra.move(MoveDirection.BACKWARD);
     tmp = new Vector2d(2,2);
-    assertEquals(zebra.getAnimalPosition(),tmp);
+    assertEquals(zebra.getPosition(),tmp);
     }
     @Test
     public void borderTest(){
@@ -58,27 +58,27 @@ class AnimalUpdatedTest {
         zebra.move(MoveDirection.FORWARD);
         zebra.move(MoveDirection.FORWARD);
         zebra.move(MoveDirection.FORWARD);
-        assertEquals(zebra.getAnimalPosition(),tmp);
+        assertEquals(zebra.getPosition(),tmp);
         zebra.move(MoveDirection.BACKWARD);
         zebra.move(MoveDirection.BACKWARD);
         zebra.move(MoveDirection.BACKWARD);
         zebra.move(MoveDirection.BACKWARD);
         zebra.move(MoveDirection.BACKWARD);
         tmp = new Vector2d(2,0);
-        assertEquals(zebra.getAnimalPosition(),tmp);
+        assertEquals(zebra.getPosition(),tmp);
         zebra.move(MoveDirection.RIGHT);
         zebra.move(MoveDirection.BACKWARD);
         zebra.move(MoveDirection.BACKWARD);
         zebra.move(MoveDirection.BACKWARD);
         tmp = new Vector2d(0,0);
-        assertEquals(zebra.getAnimalPosition(),tmp);
+        assertEquals(zebra.getPosition(),tmp);
         zebra.move(MoveDirection.FORWARD);
         zebra.move(MoveDirection.FORWARD);
         zebra.move(MoveDirection.FORWARD);
         zebra.move(MoveDirection.FORWARD);
         zebra.move(MoveDirection.FORWARD);
         tmp = new Vector2d(4,0);
-        assertEquals(zebra.getAnimalPosition(),tmp);
+        assertEquals(zebra.getPosition(),tmp);
     }
 
     //test copied from lab3
@@ -106,10 +106,10 @@ class AnimalUpdatedTest {
         engine.run();
 
         assertEquals(engine.getAnimal(0).getAnimalOrientation(),MapDirection.SOUTH);
-        assertEquals(engine.getAnimal(0).getAnimalPosition(),new Vector2d(3,0));
+        assertEquals(engine.getAnimal(0).getPosition(),new Vector2d(3,0));
 
         assertEquals(engine.getAnimal(1).getAnimalOrientation(),MapDirection.NORTH);
-        assertEquals(engine.getAnimal(1).getAnimalPosition(),new Vector2d(0,4));
+        assertEquals(engine.getAnimal(1).getPosition(),new Vector2d(0,4));
 
         // collisions
         String[] commandsString2 = {"f","b"};
@@ -120,9 +120,9 @@ class AnimalUpdatedTest {
         SimulationEngine engine2 = new SimulationEngine(commands2,map,startingPositions2);
         engine2.run();
 
-        assertEquals(engine2.getAnimal(0).getAnimalPosition(), new Vector2d(2,2));
+        assertEquals(engine2.getAnimal(0).getPosition(), new Vector2d(2,2));
         assertEquals(engine2.getAnimal(0).getAnimalOrientation(), MapDirection.NORTH);
-        assertEquals(engine2.getAnimal(1).getAnimalPosition(), new Vector2d(2,3));
+        assertEquals(engine2.getAnimal(1).getPosition(), new Vector2d(2,3));
         assertEquals(engine2.getAnimal(1).getAnimalOrientation(), MapDirection.NORTH);
 
 
