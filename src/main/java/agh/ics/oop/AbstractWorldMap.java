@@ -1,12 +1,14 @@
 package agh.ics.oop;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-public abstract class AbstractWorldMap implements IWorldMap {
+public abstract class AbstractWorldMap implements IWorldMap,IPositionChangeObserver {
     protected Vector2d lowerLeft;
     protected Vector2d upperRight;
-    protected List<Animal> animals = new ArrayList<>();
+    protected Map<Vector2d,Animal> animals = new HashMap<>();
     protected MapVisualizer toVisualize;
 
     // "rozmiar mapy ma być "nieskończony" (czyli ograniczony tylko możliwościami int-a)"
@@ -16,10 +18,19 @@ public abstract class AbstractWorldMap implements IWorldMap {
         this.upperRight = new Vector2d(right, top);
         this.toVisualize = new MapVisualizer(this);
     }
-    public boolean place(Animal animal) {
-        if(canMoveTo(animal.getPosition())) {
-            this.animals.add(animal);
 
+    @Override
+    public void positionChanged(Vector2d oldPosition, Vector2d newPosition) {
+        Animal toChange = animals.get(oldPosition);
+        animals.remove(oldPosition);
+        animals.put(newPosition,toChange);
+    }
+
+    public boolean place(Animal animal) {
+        Vector2d tmp = animal.getPosition();
+        if(canMoveTo(tmp)) {
+            this.animals.put(tmp,animal);
+            animal.addObsrver(this);
             return true;
         }
         else{
@@ -30,16 +41,11 @@ public abstract class AbstractWorldMap implements IWorldMap {
         return !(objectAt(position) instanceof Animal) && this.lowerLeft.precedes(position) && this.upperRight.follows(position);
     }
     public boolean isOccupied(Vector2d position) {
-        for(Animal animal:animals){
-            if(animal.getPosition().equals(position))return true;
-        }
+        if(this.animals.get(position) instanceof Animal) return true;
         return false;
     }
     public Object objectAt(Vector2d position) {
-        for(Animal animal:animals){
-            if(animal.isAt(position))return animal;
-        }
-        return null;
+        return this.animals.get(position);
     }
     abstract Vector2d getLowerLeft();
     abstract Vector2d getUpperRight();

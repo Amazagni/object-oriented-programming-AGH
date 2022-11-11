@@ -23,8 +23,8 @@ public class GrassField extends AbstractWorldMap {
         for(Grass clumpOfGrass: clumpsOfGrass){
             tmp = tmp.lowerLeft(clumpOfGrass.getPosition());
         }
-        for(Animal animal: animals){
-            tmp = tmp.lowerLeft(animal.getPosition());
+        for(Vector2d position: animals.keySet()){
+            tmp = tmp.lowerLeft(position);
         }
         return tmp;
     }
@@ -34,8 +34,8 @@ public class GrassField extends AbstractWorldMap {
         for(Grass clumpOfGrass: clumpsOfGrass){
             tmp = tmp.upperRight(clumpOfGrass.getPosition());
         }
-        for(Animal animal: animals){
-            tmp = tmp.upperRight(animal.getPosition());
+        for(Vector2d position: animals.keySet()){
+            tmp = tmp.upperRight(position);
         }
         return tmp;
     }

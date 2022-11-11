@@ -1,5 +1,8 @@
 package agh.ics.oop;
 
+import java.util.Map;
+import java.util.Objects;
+
 public class Vector2d {
     public final int x;
     public final int y;
@@ -31,5 +34,8 @@ public class Vector2d {
         if(this.x == that.x && this.y == that.y)return true;
         return false;
     }
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.x, this.y);
+    }
 }
