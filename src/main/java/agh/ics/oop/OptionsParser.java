@@ -66,6 +66,8 @@ public class OptionsParser {
                      changed[curr] = MoveDirection.LEFT;
                      curr += 1;
                      break;
+                 default:
+                     throw new IllegalArgumentException("\"" + argument + "\"" + " is not legal move specification");
                  }
 
 

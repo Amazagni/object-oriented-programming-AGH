@@ -2,8 +2,18 @@ package agh.ics.oop;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-/*
 class AnimalTest {
+    //UPDATED PARSER TESTS
+   /* @Test
+    public void parserTest(){
+        OptionsParser tmp = new OptionsParser();
+        String[] first = {"f","forward","b","backward","r","right","l","left"};
+        MoveDirection[] firstCheck = {MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.BACKWARD,
+                MoveDirection.BACKWARD, MoveDirection.RIGHT, MoveDirection.RIGHT, MoveDirection.LEFT, MoveDirection.LEFT};
+        assertArrayEquals(tmp.parse(first),firstCheck);
+
+    }*/}
+/*
     @Test
     public void orientationTest(){
         Animal zebra = new Animal();
@@ -72,15 +82,8 @@ class AnimalTest {
         tmp = new Vector2d(4,0);
         assertEquals(zebra.getAnimalPosition(),tmp);
     }
-    @Test
-    public void parserTest(){
-        OptionsParser tmp = new OptionsParser();
-        //all possibilities with some random exapmles :)
-        String[] first = {"programowanie","f","w","javie","forward","jest","b","backward","przyjemne",":)","r","right","l","left"};
-        MoveDirection[] second = {MoveDirection.FORWARD, MoveDirection.FORWARD, MoveDirection.BACKWARD,
-                MoveDirection.BACKWARD, MoveDirection.RIGHT, MoveDirection.RIGHT, MoveDirection.LEFT, MoveDirection.LEFT};
-        assertArrayEquals(tmp.parse(first),second);
-    }
 
 
-}*/
+
+}
+*/
