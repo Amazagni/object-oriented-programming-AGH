@@ -69,6 +69,12 @@ public class App extends Application {
                     label = new Label();
                 }
                 else{
+                    if(this.map.objectAt(tmp)instanceof Animal){
+
+                    }
+                    else{
+
+                    }
                     label = new Label(map.objectAt(tmp).toString());
                 }
                 gridPane.add(label,i + 1 - lowerLeft.x, -j + 1 + upperRight.y, 1, 1);
