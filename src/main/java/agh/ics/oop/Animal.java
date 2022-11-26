@@ -3,6 +3,7 @@ package agh.ics.oop;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.WeakHashMap;
 
 public class Animal extends AbstractWorldMapElement {
     private MapDirection direction = MapDirection.NORTH;
@@ -72,5 +73,20 @@ public class Animal extends AbstractWorldMapElement {
                 break;
 
         }
+    }
+
+    @Override
+    public String getPath() {
+        switch(this.direction) {
+            case NORTH:
+                return "src/main/resources/up.png";
+            case SOUTH:
+                return "src/main/resources/down.png";
+            case EAST:
+                return "src/main/resources/right.png";
+            case WEST:
+                return "src/main/resources/left.png";
+        }
+        return "";
     }
 }

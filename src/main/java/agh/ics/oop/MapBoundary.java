@@ -23,10 +23,8 @@ public class MapBoundary implements IPositionChangeObserver{
     public void addElement(AbstractWorldMapElement e){
         xElements.put(e.getPosition(),e);
         yElements.put(e.getPosition(),e);
-        System.out.println(xElements.get(xElements.firstKey()));
     }
     public Vector2d getLowerLeft(){
-        System.out.println(xElements.firstKey());
         return new Vector2d(xElements.firstKey().x, yElements.firstKey().y);
     }
     public Vector2d getUpperRight(){

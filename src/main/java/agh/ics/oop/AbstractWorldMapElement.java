@@ -9,4 +9,9 @@ public class AbstractWorldMapElement implements IMapElement {
     public Vector2d getPosition(){
         return this.position;
     }
+
+    @Override
+    public String getPath() {
+        return null;
+    }
 }
