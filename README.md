@@ -1,2 +1,1 @@
-# PO
-Zadania z programowania obiektowego
+# Object oriented programming course AGH University
